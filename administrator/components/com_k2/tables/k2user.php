@@ -37,8 +37,12 @@ class TableK2User extends K2Table
     function check()
     {
 
-        if (JString::trim($this->url) != '' && substr($this->url, 0, 7) != 'http://')
+        if (JString::trim($this->url) != '' &&
+            substr($this->url, 0, 7) != 'http://' && 
+            substr($this->url, 0, 8) != 'https://'
+           ) {
             $this->url = 'http://'.$this->url;
+        }
         return true;
     }
 
